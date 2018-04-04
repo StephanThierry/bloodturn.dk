@@ -1,0 +1,1113 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Bloodturn</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato" type="text/css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="./audiojs/audio.js"></script>
+
+    <!--Favicon: http://www.favicon-generator.org/ -->
+    <link rel="apple-touch-icon" sizes="57x57" href="/favicon/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="/favicon/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/favicon/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/favicon/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/favicon/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/favicon/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/favicon/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/favicon/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="/favicon/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="/favicon/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
+    <link rel="manifest" href="/favicon/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="/favicon/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+
+    <style>
+        body {
+            font: 400 15px/1.8 Lato, sans-serif;
+            color: #777;
+        }
+
+        h3,
+        h4 {
+            margin: 10px 0 30px 0;
+            letter-spacing: 10px;
+            font-size: 20px;
+            color: #111;
+        }
+
+        .container {
+            padding: 20px 30px;
+        }
+
+        .person {
+            border: 10px solid transparent;
+            margin-bottom: 25px;
+            width: 80%;
+            height: 80%;
+            opacity: 0.7;
+        }
+
+        .person:hover {
+            border-color: #f1f1f1;
+        }
+
+        .carousel-inner img {
+            -webkit-filter: grayscale(90%);
+            filter: grayscale(90%);
+            /* desaturate */
+            width: 100%;
+            /* Set width to 100% */
+            margin: auto;
+        }
+
+        .carousel-caption h3 {
+            color: #fff !important;
+        }
+
+        @media (max-width: 600px) {
+            .carousel-caption {
+                display: none;
+                /* Hide the carousel text when the screen is less than 600 pixels wide */
+            }
+        }
+
+        .bg-1 {
+            background: #2d2d30;
+            color: #bdbdbd;
+        }
+
+        .bg-1 h3 {
+            color: #fff;
+        }
+
+        .bg-1 p {
+            font-style: italic;
+        }
+
+        .list-group-item:first-child {
+            border-top-right-radius: 0;
+            border-top-left-radius: 0;
+        }
+
+        .list-group-item:last-child {
+            border-bottom-right-radius: 0;
+            border-bottom-left-radius: 0;
+        }
+
+        .thumbnail {
+            padding: 0 0 15px 0;
+            border: none;
+            border-radius: 0;
+        }
+
+        .thumbnail p {
+            margin-top: 15px;
+            color: #555;
+        }
+
+        .btn {
+            padding: 10px 20px;
+            background-color: #333;
+            color: #f1f1f1;
+            border-radius: 0;
+            transition: .2s;
+        }
+
+        .btn:hover,
+        .btn:focus {
+            border: 1px solid #333;
+            background-color: #fff;
+            color: #000;
+        }
+
+        .modal-header,
+        h4,
+        .close {
+            background-color: #333;
+            color: #fff !important;
+            text-align: center;
+            font-size: 30px;
+        }
+
+        .modal-header,
+        .modal-body {
+            padding: 40px 50px;
+        }
+
+        .nav-tabs li a {
+            color: #777;
+        }
+
+        #googleMap {
+            width: 100%;
+            height: 400px;
+            -webkit-filter: grayscale(100%);
+            filter: grayscale(100%);
+        }
+
+        .navbar {
+            font-family: Lato, sans-serif;
+            margin-bottom: 0;
+            background-color: #2d2d30;
+            border: 0;
+            font-size: 11px !important;
+            letter-spacing: 4px;
+            opacity: 0.9;
+        }
+
+        .navbar li a,
+        .navbar .navbar-brand {
+            color: #d5d5d5 !important;
+        }
+
+        .navbar-nav li a:hover {
+            color: #fff !important;
+        }
+
+        .navbar-nav li.active a {
+            color: #fff !important;
+            background-color: #29292c !important;
+        }
+
+        .navbar-default .navbar-toggle {
+            border-color: transparent;
+        }
+
+        .open .dropdown-toggle {
+            color: #fff;
+            background-color: #555 !important;
+        }
+
+        .dropdown-menu li a {
+            color: #000 !important;
+        }
+
+        .dropdown-menu li a:hover {
+            background-color: red !important;
+        }
+
+        footer {
+            background-color: #2d2d30;
+            color: #f5f5f5;
+            padding: 32px;
+        }
+
+        footer a {
+            color: #f5f5f5;
+        }
+
+        footer a:hover {
+            color: #777;
+            text-decoration: none;
+        }
+
+        .form-control {
+            border-radius: 0;
+        }
+
+        textarea {
+            resize: none;
+        }
+
+        .list-group {
+            color: red;
+            padding: 0px;
+            margin: 0px;
+            list-style: decimal-leading-zero inside;
+            coclor: #ccc;
+            width: 460px;
+            border-top: 1px solid #ccc;
+            font-size: 0.9em;
+        }
+
+        .list-group li {
+            position: relative;
+            margin: 0px;
+            padding: 9px 2px 10px;
+            border-bottom: 1px solid #ccc;
+            cursor: pointer;
+        }
+
+        .list-group li a {
+            text-indent: -3.3ex;
+            padding: 0px 0px 10px 25px;
+        }
+
+        li.playing {
+            color: #aaa;
+            text-shadow: 1px 1px 0px rgba(255, 255, 255, 0.3);
+        }
+
+        li.playing a {
+            color: #000;
+        }
+
+        li.playing:before {
+            content: '\f04b';
+            font-family: FontAwesome;
+            width: 14px;
+            height: 14px;
+            padding: 3px;
+            line-height: 21px;
+            margin: 0px;
+            position: absolute;
+            left: -26px;
+            top: 9px;
+            color: #0f0f0f;
+            font-size: 21px;
+            text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.2);
+        }
+
+        .audiojs .play-pause {
+            width: 37px;
+        }
+
+        @media (max-width: 550px) {
+            .audiojs {
+                width: 337px;
+                margin-left: -5px;
+            }
+            .list-group {
+                width: 300px;
+            }
+            .time {
+                visibility: hidden;
+            }
+        }
+
+        .dropshadow {
+            box-shadow: 10px 10px 15px #000000;
+            -moz-box-shadow: rgba(0, 0, 0, 0.4) 13px 13px 10px;
+            -webkit-box-shadow: rgba(0, 0, 0, 0.4) 13px 13px 10px;
+            -o-box-shadow: rgba(0, 0, 0, 0.4) 13px 13px 10px;
+            -webkit-filter: drop-shadow(0 0 12px black) !important;
+        }
+
+        .gig {
+            border-radius: 16px;
+            border: 1px solid #ccc!important;
+        }
+    </style>
+</head>
+
+<body id="bloodturn" data-spy="scroll" data-target=".navbar" data-offset="50">
+
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+                <a class="navbar-brand" href="#myPage"><img style="margin-top: -10px" src="img/logo_white.png" height="50px"></a>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#bloodturn">HOME</a></li>
+                    <li><a href="#tracks">TRACKS</a></li>
+                    <li><a href="#videos">VIDEOS</a></li>
+                    <li><a href="#band">BAND</a></li>
+                    <!-- <li><a href="#contact">CONTACT</a></li>
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#">MORE
+          <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="#">Merchandise</a></li>
+            <li><a href="#">Extras</a></li>
+            <li><a href="#">Media</a></li>
+          </ul>
+        </li>
+        <li><a href="#"><span class="glyphicon glyphicon-search"></span></a></li>
+		-->
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+        <!-- Indicators -->
+        <ol class="carousel-indicators">
+            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+            <li data-target="#myCarousel" data-slide-to="1"></li>
+            <li data-target="#myCarousel" data-slide-to="2"></li>
+        </ol>
+
+        <!-- Wrapper for slides -->
+        <div class="carousel-inner" role="listbox">
+            <div class="item active">
+                <img src="img/bloodturn1.jpg" alt="New York" width="1200" height="700">
+                <div class="carousel-caption">
+                    <h3>Some dark forest</h3>
+                    <p>Grenaa</p>
+                </div>
+            </div>
+
+            <div class="item">
+                <img src="img/bloodturn2.jpg" alt="Chicago" width="1200" height="700">
+                <div class="carousel-caption">
+                    <h3>Bygningen</h3>
+                    <p>Vejle</p>
+                </div>
+            </div>
+
+            <div class="item">
+                <img src="img/bloodturn3.jpg" alt="Los Angeles" width="1200" height="700">
+                <div class="carousel-caption">
+                    <h3>Kim's Sommerfestival</h3>
+                    <p>Festival, Midtfyn</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Left and right controls -->
+        <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+            <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+            <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
+
+
+    <div id="tracks" class="bg-1">
+        <div class="container">
+            <center><img class="img-responsive" src="img/tracks.png"></center>
+            <br>
+            <div class="row text-center">
+                <center><audio preload></audio></center><br>
+                <center id="playing_headline">Playlist: (<span style="cursor: pointer;" onclick="$('.downloadLink').show();"><u>Show mp3 download links!</u></a>)</center>
+                <center>
+                    <ol class="list-group">
+                        <li class="list-group-item playing"><a href="#" data-trackid="bloodline" data-src="./tracks/Bloodturn-Bloodline.mp3">Bloodline</a> </li> <a class="downloadLink" href="./tracks/Bloodturn-Bloodline.mp3" download title="Download">Download "Bloodline" <i class="glyphicon glyphicon-download-alt"></i></a> 
+                        <li class="list-group-item"><a href="#" data-trackid="theraid" data-src="./tracks/Bloodturn-TheRaid.mp3">The Raid</a></li> <a class="downloadLink" href="./tracks/Bloodturn-TheRaid.mp3" download title="Download">Download "The Raid" <i class="glyphicon glyphicon-download-alt"></i></a>
+                        <li class="list-group-item"><a href="#" data-trackid="psalm23" data-src="./tracks/Bloodturn-Psalm23.mp3">Psalm 23 (The Lord is my Shepherd)</a> </li> <a class="downloadLink" href="./tracks/Bloodturn-Psalm23.mp3" download title="Download">Download "Psalm 23" <i class="glyphicon glyphicon-download-alt"></i></a>
+                        <li class="list-group-item"><a href="#" data-trackid="darkness" data-src="./tracks/Bloodturn-Darkness_In_Me.mp3">Darkness in Me</a> </li> <a class="downloadLink" href="./tracks/Bloodturn-Darkness_In_Me.mp3" download title="Download">Download "Darkness in Me" <i class="glyphicon glyphicon-download-alt"></i></a>
+                        <li class="list-group-item"><a href="#" data-trackid="burn" data-src="./tracks/Bloodturn-Burn_Out_Your_Eyes.mp3">Burn Out Your Eyes</a> </li> <a class="downloadLink" href="./tracks/Bloodturn-Burn_Out_Your_Eyes.mp3" download title="Download">Download "Burn Out Your Eyes" <i class="glyphicon glyphicon-download-alt"></i></a>
+                        <li class="list-group-item"><a href="#" data-trackid="city" data-src="./tracks/Bloodturn-City_Of_the_Pale_Horse.mp3">City Of the Pale Horse</a> </li> <a class="downloadLink" href="./tracks/Bloodturn-City_Of_the_Pale_Horse.mp3" download title="Download">Download "City Of the Pale Horse" <i class="glyphicon glyphicon-download-alt"></i></a>
+                        <li class="list-group-item"><a href="#" data-trackid="fake" data-src="./tracks/Bloodturn-Fake_Smile.mp3">Fake Smile</a> </li> <a class="downloadLink" href="./tracks/Bloodturn-Fake_Smile.mp3" download title="Download">Download "Fake Smile" <i class="glyphicon glyphicon-download-alt"></i></a>
+                        <li class="list-group-item"><a href="#" data-trackid="filthy" data-src="./tracks/Bloodturn-Filthy_Power.mp3">Filthy Power</a></li> <a class="downloadLink" href="./tracks/Bloodturn-Filthy_Power.mp3" download title="Download">Download "Filthy Power" <i class="glyphicon glyphicon-download-alt"></i></a>
+                        <li class="list-group-item"><a href="#" data-trackid="last" data-src="./tracks/Bloodturn-Last_Endeavour.mp3">Last Endeavour</a> </li> <a class="downloadLink" href="./tracks/Bloodturn-Last_Endeavour.mp3" download title="Download">Download "Last Endeavour" <i class="glyphicon glyphicon-download-alt"></i></a>
+                    </ol>
+                </center>
+
+            </div>
+        </div>
+    </div>
+
+    <div id="lyrics" class="container">
+        <h3 class="text-center">Lyrics</h3>
+        <hr>
+        <div class="text-center" id="lyrics_initialMessage">
+            Select a track from the playlist. Lyrics will be shown here.
+        </div>
+        <div class="text-center" id="lyrics_bloodline">
+            <h1>Bloodline</h1>
+            <br>
+            <br> Rushing through the blood, pain, vain, rudimentary<br> fluid motion, space and time in supersymmetry<br> This is living by affinity<br> a symphony in chemistry and industry - alive<br> --repeat--
+            <br><br>
+            <br> Struggle for the tribe, with pure animosity<br>
+            basic unit, replicating in infinity<br> 
+            Have you heard about the trinity?<br>
+            it's DNA the sun and earth, divinity - alive <br> --repeat--
+            <br>
+            <br> From the first day<br> Perpetuate
+            <br> In a straight line<br>
+            <br> My bloodline is unbroken and my selfish genes have brought me here, unbroken<br> my bloodline is unbroken<br>
+            <br> Fight
+            <br> Fight
+            <br> Break it down<br>
+            <br> Rushing through the blood, pain, vain, rudimentary<br> fluid motion, space and time in supersymmetry<br> This is living by affinity<br> a symphony in chemistry and industry - alive<br> --repeat--
+            <br> Fight!
+            <br> Fight!
+            <br> ...fight
+            <br>
+        </div>
+        <div class="text-center" id="lyrics_theraid">
+            <h1>The Raid</h1>
+            <br>You stalk through an empty wasteland
+            <br>now it's, destroyed by war
+            <br>Reborn and the sins are forgiven
+            <br>Disabled but still fights with us
+            <br>
+            <br>The raid, is where you use your, augmentation
+            <br>You get away clean
+            <br>You move unseen
+            <br>
+            <br>Fall back - to the shadows
+            <br>For the reckoning
+            <br>Fall back - to the shadows
+            <br>Cold is the void
+            <br>Fall back - to the shadows
+            <br>Death comes to all
+            <br>
+            <br>The raid, is where you use your, augmentation
+            <br>You get away clean
+            <br>You move unseen
+            <br>
+            <br>It shall be as I say
+            <br>You are one with the shadows
+            <br>
+            <br>The raid, is where you use your, augmentation
+            <br>You get away clean
+            <br>You move unseen
+            <br>
+            <br>2x Fall back 
+            <br>
+            <br>Fall back 
+            <br>Fall - 
+            <br>back 
+            <br>
+            <br>Fall back - to the shadows
+            <br>For the reckoning
+            <br>Fall back - to the shadows
+            <br>Cold is the void
+            <br>Fall back - to the shadows
+            <br>Death comes to all
+        </div>        
+        <div class="text-center" id="lyrics_psalm23">
+            <h1>Psalm 23 (The Lord is my Shepherd)</h1>
+            <br> I am the Shepherd<br> you are the sheep<br> Fall onto your knees<br> or forever sleep<br>
+            <br>
+            <i>Verse:</i><br> I am you source<br> facts are concealed<br> Though righteousness <br> truth is revealed<br>
+            <br> I am the proof<br> of credulity<br> My arguments<br> have immunity<br>
+            <br>
+            <i>[Verse]</i><br>
+            <br> Bow down <br> I am the power<br> The king of kings, <br> and the endless might<br>
+            <br> 3x the light of day, and the dead of night<br>
+            <br> 2x I am resolution, I am condemnation <br>
+            <br> Whese are the screams <br> of my indignation <br>
+            <br> If you spare the rod<br> you spoil you child<br> I beat the flesh <br> with a fucking smile<br>
+            <br>
+            <i>[Verse]</i><br>
+            <br> 3x logic is removed, my power has been proved<br>
+        </div>
+        <div class="text-center" id="lyrics_burn">
+            <h1>Burn Out Your Eyes</h1>
+            <br> Burn Out Your Eyes<br>
+            <br> Obeying only, my own design<br> Rejecting comprimise<br> Preconceptios of morality<br> Doing what only fits into this world condemnation<br>
+            <br> On the floor <br> lies morality<br> I live for the corruption<br> Righteous fools no apology<br>
+            <br>
+            <i>Verse:</i><br> We live, our lives <br> to repeat, all of our failures <br> with spite, burning inside us<br> 4x Burning out your eyes
+            <br>
+            <br> Obeying only, my own design<br> Rejecting compromise<br> Preconceptions of morality<br> Doing whatever fits into this world condemnation<br>
+            <br> Quite simply we disregard <br> All weak civil impulses<br> Mortal cleric your insanity<br> No true words have been spoken<br>
+            <br> 2x Righteous demise <br> Pressure applies<br> Deafening cries<br> Burn out your eyes <br>
+            <br>
+            <i>[Verse]</i><br>
+            <br> 3x Burn out your eyes<br> Burn out your<br>
+            <br> 4x Burn out your eyes<br>
+            <br> Burn - out - your - eyes
+            <br>
+        </div>
+        <div class="text-center" id="lyrics_darkness">
+            <h1>Darkness in Me</h1>
+            <br> The averice, of my condition<br> has left the world <br> burning <br>
+            <br> I am the match <br> that leaves the world in flame<br> This is the darkness <br> that I became <br>
+            <br>
+            <i>Verse:</i/><br>
+    hunger<br>
+    ambition<br>
+    desire<br>
+    my rapture<br>
+    <br>
+    tainted<br>
+    twisted<br>
+    wounding<br>
+    the darkness<br>
+    <br>
+    lacerations, behind my eyes<br>
+    scar my inner vision<br>
+    <br>
+    but I see through <br>
+    the false pretense<br>
+    the darkness fells like home<br>
+    ...to me<br>
+    <br>
+    2x The pain hurts like it should<br>
+    Reality won't stop<br>
+    <br>
+    2x	No one can see <br>
+    the dark in me<br>
+    No one can see <br>
+    the darkness in me<br>
+    <br>
+    <i>[Verse]</i/><br>
+    <br>
+  </div>
+  <div class="text-center" id="lyrics_city">
+    <h1>City Of the Pale Horse</h1>
+    <br>
+    Burned out cars<br>
+    honor scars<br>
+    killers, psychos, abuse and violence <br>
+    Walking the streets<br>
+    I embrace the darkness<br>
+    'cus it's my city<br>
+    I can feel her caress<br>
+    <br>
+    killers, psychos, abuse and violence <br>
+    Still I love my<br>
+    city of the pale horse<br>
+    city of the pale horse<br>
+    city of the <br>
+    pale -  <br>
+    horse - <br>
+    <br>
+    <br>
+    Burned out cars<br>
+    honor scars - <br>
+    <br>
+    Walking the streets<br>
+    I embrace the darkness<br>
+    'cus it's my city<br>
+    I can feel her caress<br>
+    <br>
+    killers, psychos, abuse and violence <br>
+    Still I love my<br>
+    city of the pale horse<br>
+    city of the pale horse<br>
+    city of the <br>
+    pale -  <br>
+    horse - <br>
+    <br>
+    9x city, city, city of the pale horse<br>
+    <br>
+    3x city of the pale horse<br>
+    <br>
+
+
+  </div>
+  <div class="text-center" id="lyrics_fake">
+    <h1>Fake Smile</h1>
+    <br>
+    Charging me with a fake crime <br>
+    stabbing my chest with hands of time <br>
+    My body is feeling weak<br>
+    keeping the smile with a knife in my cheek<br>
+    <br>
+    Living on with a fake smile <br>
+    stacking the shit in a great big pile<br>
+    My future is looking bleak<br>
+    keeping the smile with a knife in my cheek<br>
+    <br>
+    storm<br>
+    dream<br>
+    truth<br>
+    light<br>
+    smile<br>
+    <br>
+    path<br>
+    path<br>
+    <br>
+    path in front of me<br>
+  </div>
+  <div class="text-center" id="lyrics_filthy">
+    <h1>Filthy Power</h1>
+    <br>
+    Pressure, from the thoughts of desolation<br>
+    breaking to the icy storm of apathy<br>
+    fearing the idle hands the recession    <br>
+    staying inside yourself by the dying fire<br>
+    <br>
+    In your cold, vacant eyes<br>
+    You disguise, your demise<br>
+    <br>
+    when you smile, terminated<br>
+    In the dark, forgery<br>
+    <br>
+    speaking lies, fabrication<br>
+    underneath<br>
+    truth lies cold <br>
+
+    <br>
+    <i>Verse:</i><br> Born <br> agony
+            <br> filthy
+            <br> power
+            <br>
+            <br> traitor
+            <br> my mistake<br> empty eyes<br> devour
+            <br>
+            <br> Repent!
+
+            <br> Your power depraves<br> A gripping pull my people enslaves <br>
+            <br> Refuse!
+            <br> Your cartel of lie<br> Your filthy power soon must die<br>
+            <br> 2x Your filthy power<br> soon must die<br>
+            <br>
+            <i>[Verse]</i><br>
+            <br> filthy
+            <br> power
+            <br> filthy power<br>
+        </div>
+        <div class="text-center" id="lyrics_last">
+            <h1>Last Endeavour</h1>
+            <br> What will you become <br> your light is fading<br> where will you go <br> when you're no longer powerful<br>
+            <br>
+            <i>Verse:</i><br> Your dominon neverending<br> but to oblivion time descending<br> Reign seems to lasts forever<br> to stay alive will be your last endeavour<br> 4x Taken from you<br>
+            <br> Broken bones and shattered dream<br> you cant wake up, even when you scream<br>
+            <br> Thorns are, in your crown<br> You bring me down<br> Thorns are in your fucking crown<br> You bring me dooown<br>
+            <br> 2x Darkness has been reality <br> Now the light is just blinding<br>
+            <br> Thrive in the - hopelessness<br> Embrace your inner - nihilist<br> Keep your silence<br> Keep smiling widely <br>
+            <br> Thrive in the hopelessness, embrace your inner nihilist<br>
+            <br>
+            <i>[Verse]</i><br>
+            <br> Broken
+            <br> shattered
+            <br> screaming
+            <br> darkness
+            <br>
+            <br> fucking - reality<br> blinding
+            <br>
+            <br> Your light is fading<br> 2x Where will you go <br>
+        </div>
+        <hr>
+    </div>
+
+    <style>
+        #videos videotile {
+            margin-top: 20px !important;
+        }
+    </style>
+
+
+    <div id="videos" class="bg-1">
+        <div class="container">
+            <div class="row">
+                <center><img class="img-responsive" src="img/videos.png"></center>
+                <center>
+                    <h4>Studio:</h4></center>
+            </div>
+            <div class="row">
+                <div class="col-sm-6">
+                    <br>
+                    <em>Filthy&nbsp;Power</em>
+                    <div class="dropshadow">
+                        <div class="embed-responsive embed-responsive-16by9">
+                            <iframe id="abc" allowfullscreen="allowfullscreen" mozallowfullscreen="mozallowfullscreen" msallowfullscreen="msallowfullscreen" oallowfullscreen="oallowfullscreen" webkitallowfullscreen="webkitallowfullscreen" class="embed-responsive-item" src="//www.youtube.com/embed/pql26UxQNmQ"></iframe>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <br>
+                    <em>Psalm&nbsp;23</em>
+                    <div class="dropshadow">
+                        <div class="embed-responsive embed-responsive-16by9">
+                            <iframe allowfullscreen="allowfullscreen" mozallowfullscreen="mozallowfullscreen" msallowfullscreen="msallowfullscreen" oallowfullscreen="oallowfullscreen" webkitallowfullscreen="webkitallowfullscreen" class="embed-responsive-item" src="//www.youtube.com/embed/VtdAZgBdbfA"></iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <br>
+                <center>
+                    <h4>Live:</h4></center>
+            </div>
+            <div class="row">
+
+                <div class="col-sm-6">
+                    <br>
+                    <em>Full set, Tornvang</em>
+                    <div class="dropshadow">
+                        <div class="embed-responsive embed-responsive-16by9">
+                            <iframe allowfullscreen="allowfullscreen" mozallowfullscreen="mozallowfullscreen" msallowfullscreen="msallowfullscreen" oallowfullscreen="oallowfullscreen" webkitallowfullscreen="webkitallowfullscreen" class="embed-responsive-item" src="//www.youtube.com/embed/bHFY4q23iAM"></iframe>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-6">
+                    <br>
+                    <em>Bloodline, Tornvang</em>
+                    <div class="dropshadow">
+                        <div class="embed-responsive embed-responsive-16by9">
+                            <iframe allowfullscreen="allowfullscreen" mozallowfullscreen="mozallowfullscreen" msallowfullscreen="msallowfullscreen" oallowfullscreen="oallowfullscreen" webkitallowfullscreen="webkitallowfullscreen" class="embed-responsive-item" src="//www.youtube.com/embed/0CG2aMIVuGU"></iframe>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-6">
+                    <br>
+                    <em>City of the Pale Horse, Bygningen</em>
+                    <div class="dropshadow">
+                        <div class="embed-responsive embed-responsive-16by9">
+                            <iframe allowfullscreen="allowfullscreen" mozallowfullscreen="mozallowfullscreen" msallowfullscreen="msallowfullscreen" oallowfullscreen="oallowfullscreen" webkitallowfullscreen="webkitallowfullscreen" class="embed-responsive-item" src="//www.youtube.com/embed/RACXNw37ats"></iframe>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-6">
+                    <br>
+                    <em>Full set, Kim's Sommerfestival</em>
+                    <div class="dropshadow">
+                        <div class="embed-responsive embed-responsive-16by9">
+                            <iframe allowfullscreen="allowfullscreen" mozallowfullscreen="mozallowfullscreen" msallowfullscreen="msallowfullscreen" oallowfullscreen="oallowfullscreen" webkitallowfullscreen="webkitallowfullscreen" class="embed-responsive-item" src="//www.youtube.com/embed/_mLAoXQEIiU"></iframe>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-6">
+                    <br>
+                    <em>Darkness in Me, Kim's Sommerfestival</em>
+                    <div class="dropshadow">
+                        <div class="embed-responsive embed-responsive-16by9">
+                            <iframe allowfullscreen="allowfullscreen" mozallowfullscreen="mozallowfullscreen" msallowfullscreen="msallowfullscreen" oallowfullscreen="oallowfullscreen" webkitallowfullscreen="webkitallowfullscreen" class="embed-responsive-item" src="//www.youtube.com/embed/HYwNnwetuS0"></iframe>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Container (TOUR Section)-->
+    <div id="tour">
+        <div class="container">
+            <div class="row">
+                <h3 class="text-center">GIGS</h3>
+                <p class="text-center">- upcoming - </p>
+                    <div class="row text-center">
+                    <div class="col-sm-4">
+                        <div class="thumbnail gig">
+                            <!--<img src="paris.jpg" alt="Paris" width="400" height="300">-->
+                            <p><strong>CC Hegn - Silkeborg, Nygade 27-29</strong></p>
+                            <p>April 20, 2018. kl 18.00</p>
+                            <button class="btn"><a target="_blank" href="http://ccsilkeborg.dk/cevent/cc-hegn-metal-festival/">Goto Show</a></button>
+                        </div>
+                    </div>
+                    </div>
+                    <p class="text-center">- past shows - </p>
+                    <div class="row text-center">
+                        <div class="col-sm-4">
+                            <div class="thumbnail gig">
+                                <!--<img src="paris.jpg" alt="Paris" width="400" height="300">-->
+                                <p><strong>Djævlebal Vol 2. - Stilling</strong></p>
+                                <p>November 18, 2017. kl 19.00</p>
+                                <button class="btn"><a target="_blank" href="https://www.facebook.com/events/699469536919201/">Goto Show</a></button>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="thumbnail gig">
+                                <!--<img src="paris.jpg" alt="Paris" width="400" height="300">-->
+                                <p><strong>T:O:A 2017 - Tornvang Open Air</strong></p>
+                                <p>September 3, 2017. kl 20.00</p>
+                                <button class="btn"><a target="_blank" href="https://www.facebook.com/groups/1804187429886077/">Goto Show</a></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Container (The Band Section) -->
+        <div class="bg-1">
+        <div class="container">
+            <div id="band" class="container text-center">
+                <center><img class="img-responsive" src="img/band.png"></center>
+                <i>Click each profile to show gear.</i>
+            </div>
+
+            <div id="bandProfiles" class="container text-center">
+                <br>
+                <div class="row">
+                    <div class="col-sm-3">
+                        <strong>Stew</strong><br>
+                        <a href="#Stew" data-toggle="collapse">
+                            <img src="img\stew.jpg" class="img-circle person" alt="Stew" width="255" height="255">
+                        </a>
+                        <div>
+                            <p>Guitarist</p>
+                            <p>"Look! I can still play this after 12 beers!"</p>
+                            <p>Member since, the dawn of time.</p>
+                        </div>
+                        <div id="Stew" class="collapse">
+                            <h4>Gear</h4>
+                            <p>Pure evil</p>
+                            <p>A guitar... I guess...?!</p>
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <strong>Steph</strong><br>
+                        <a href="#Steph" data-toggle="collapse">
+                            <img src="img/steph.jpg" class="img-circle person" alt="Random Name" width="255" height="255">
+                        </a>
+                        <div>
+                            <p>Lead Vocalist</p>
+                            <p>The "Frodo Baggins" of Heavy Metal!</p>
+                        </div>
+                        <div id="Steph" class="collapse">
+                            <h4>Gear</h4>
+                            <p>SHURE Beta 58A</p>
+                            <p>(...and you can hear it's a Beta-version)</p>
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <strong>Stiefel</strong><br>
+                        <a href="#Stiefel" data-toggle="collapse">
+                            <img src="img/stiefel.jpg" class="img-circle person" alt="Random Name" width="255" height="255">
+                        </a>
+                        <div>
+                            <p>Drummer</p>
+                            <p>Will bang the drums till somebody bleeds</p>
+                            <p>"Is it a blast beat? - No?! Well fuck off then!"</p>
+                        </div>
+                        <div id="Stiefel" class="collapse">
+                            <h4>Gear</h4>
+                            <p>All the gear in the fucking world</p>
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <strong>Killer Roland</strong><br>
+                        <a href="#Roland" data-toggle="collapse">
+                            <img src="img/roland.jpg" class="img-circle person" alt="Random Name" width="255" height="255">
+                        </a>
+                        <div>
+                            <p>Bass player</p>
+                            <p>Loves long walks on the beach, and killing motherfuckers</p>
+                        </div>
+                        <div id="Roland" class="collapse">
+                            <h4>Gear</h4>
+                            <p>A fucking bass dude!!</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    
+
+<!-- Modal
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+
+
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">�</button>
+          <h4><span class="glyphicon glyphicon-lock"></span> Tickets</h4>
+        </div>
+        <div class="modal-body">
+          <form role="form">
+            <div class="form-group">
+              <label for="psw"><span class="glyphicon glyphicon-shopping-cart"></span> Tickets, $23 per person</label>
+              <input type="number" class="form-control" id="psw" placeholder="How many?">
+            </div>
+            <div class="form-group">
+              <label for="usrname"><span class="glyphicon glyphicon-user"></span> Send To</label>
+              <input type="text" class="form-control" id="usrname" placeholder="Enter email">
+            </div>
+              <button type="submit" class="btn btn-block">Pay
+                <span class="glyphicon glyphicon-ok"></span>
+              </button>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-danger btn-default pull-left" data-dismiss="modal">
+            <span class="glyphicon glyphicon-remove"></span> Cancel
+          </button>
+          <p>Need <a href="#">help?</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+-->
+    <!-- Container (Contact Section)
+<div id="contact" class="container">
+  <h3 class="text-center">Contact</h3>
+  <p class="text-center"><em>We love our fans!</em></p>
+
+  <div class="row">
+    <div class="col-md-4">
+      <p>Fan? Drop a note.</p>
+      <p><span class="glyphicon glyphicon-map-marker"></span>Chicago, US</p>
+      <p><span class="glyphicon glyphicon-phone"></span>Phone: +00 1515151515</p>
+      <p><span class="glyphicon glyphicon-envelope"></span>Email: mail@mail.com</p>
+    </div>
+    <div class="col-md-8">
+      <div class="row">
+        <div class="col-sm-6 form-group">
+          <input class="form-control" id="name" name="name" placeholder="Name" type="text" required>
+        </div>
+        <div class="col-sm-6 form-group">
+          <input class="form-control" id="email" name="email" placeholder="Email" type="email" required>
+        </div>
+      </div>
+      <textarea class="form-control" id="comments" name="comments" placeholder="Comment" rows="5"></textarea>
+      <br>
+      <div class="row">
+        <div class="col-md-12 form-group">
+          <button class="btn pull-right" type="submit">Send</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <br>
+  <h3 class="text-center">From The Blog</h3>
+  <ul class="nav nav-tabs">
+    <li class="active"><a data-toggle="tab" href="#home">Mike</a></li>
+    <li><a data-toggle="tab" href="#menu1">Chandler</a></li>
+    <li><a data-toggle="tab" href="#menu2">Peter</a></li>
+  </ul>
+
+  <div class="tab-content">
+    <div id="home" class="tab-pane fade in active">
+      <h2>Mike Ross, Manager</h2>
+      <p>Man, we've been on the road for some time now. Looking forward to lorem ipsum.</p>
+    </div>
+    <div id="menu1" class="tab-pane fade">
+      <h2>Chandler Bing, Guitarist</h2>
+      <p>Always a pleasure people! Hope you enjoyed it as much as I did. Could I BE.. any more pleased?</p>
+    </div>
+    <div id="menu2" class="tab-pane fade">
+      <h2>Peter Griffin, Bass player</h2>
+      <p>I mean, sometimes I enjoy the show, but other times I enjoy other things.</p>
+    </div>
+  </div>
+</div>
+-->
+    <!-- Add Google Maps
+<div id="googleMap"></div>
+<script>
+function myMap() {
+var myCenter = new google.maps.LatLng(41.878114, -87.629798);
+var mapProp = {center:myCenter, zoom:12, scrollwheel:false, draggable:false, mapTypeId:google.maps.MapTypeId.ROADMAP};
+var map = new google.maps.Map(document.getElementById("googleMap"),mapProp);
+var marker = new google.maps.Marker({position:myCenter});
+marker.setMap(map);
+}
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBu-916DdpKAjTmJNIgngS6HL_kDIKU0aU&callback=myMap"></script>
+
+-->
+
+
+    <div id="logo" class="container text-center">
+        <hr>
+        <center><img class="img-responsive" src="img/logo_black.png"></center>
+        <em> - Death comes to all - </em><br>
+        <br>
+    </div>
+
+    <!-- Footer -->
+    <footer class="text-center">
+        <span>Contact us</span>
+        <a target="facebook" class="btn btn-social-icon btn-facebook" href="https://www.facebook.com/BloodturnMetal/">
+            <span class="fa fa-facebook"></span>
+        </a>
+        <a target="_TOP" class="btn btn-social-icon btn-envelope" href="mailto:info@bloodturn.dk">
+            <span class="fa fa-envelope"></span> &nbsp; info@bloodturn.dk
+        </a>
+        <!--<a class="up-arrow" href="#myPage" data-toggle="tooltip" title="TO TOP">
+        <span class="glyphicon glyphicon-chevron-up"></span>
+      </a><br><br>
+      <p></p>-->
+    </footer>
+
+    <script>
+        $(document).ready(function() {
+            // Initialize Tooltip
+            $('.downloadLink').hide();
+
+            $('[data-toggle="tooltip"]').tooltip();
+
+            // Add smooth scrolling to all links in navbar + footer link
+            $(".navbar a, footer a[href='#myPage']").on('click', function(event) {
+
+                // Make sure this.hash has a value before overriding default behavior
+                if (this.hash !== "") {
+
+                    // Prevent default anchor click behavior
+                    event.preventDefault();
+
+                    // Store hash
+                    var hash = this.hash;
+
+                    // Using jQuery's animate() method to add smooth page scroll
+                    // The optional number (900) specifies the number of milliseconds it takes to scroll to the specified area
+                    $('html, body').animate({
+                        scrollTop: $(hash).offset().top
+                    }, 900, function() {
+
+                        // Add hash (#) to URL when done scrolling (default click behavior)
+                        window.location.hash = hash;
+                    });
+                } // End if
+            });
+
+            // Setup the player to autoplay the next track
+            hideLyrics();
+            $("#lyrics_initialMessage").show(1);
+
+            function hideLyrics() {
+                $('[id^=lyrics_]').hide(300);
+            }
+
+            var a = audiojs.createAll({
+                trackEnded: function() {
+                    var next = $('ol li.playing').next().next();
+
+                    if ($('a:first', next).attr('data-src') == undefined) next = $('.list-group-item').first();
+                    next.addClass('playing').siblings().removeClass('playing');
+                    audio.load($('a:first', next).attr('data-src'), $('a:first', next).attr('data-trackid'));
+                    audio.play();
+                },
+                onAfterPlay: function() {
+                    var trackid = a[0].trackid;
+                    hideLyrics();
+                    $("#lyrics_" + trackid).show(300);
+
+                }
+            });
+
+            // Load in the first track
+            var audio = a[0];
+            first = $('ol a');;
+            $('ol li').first().addClass('playing');
+            audio.load(first.attr('data-src'), first.attr('data-trackid'));
+
+            // Load in a track on click
+            $('ol li').click(function(e) {
+                e.preventDefault();
+                $(this).addClass('playing').siblings().removeClass('playing');
+                var track = $('a', this);
+                audio.load(track.attr('data-src'), track.attr('data-trackid'));
+                audio.play();
+            });
+            // Keyboard shortcuts
+            $(document).keydown(function(e) {
+                var unicode = e.charCode ? e.charCode : e.keyCode;
+                // right arrow
+                if (unicode == 39) {
+                    var next = $('li.playing').next();
+                    if (!next.length) next = $('ol li').first();
+                    next.click();
+                    // back arrow
+                } else if (unicode == 37) {
+                    var prev = $('li.playing').prev();
+                    if (!prev.length) prev = $('ol li').last();
+                    prev.click();
+                    // spacebar
+                } else if (unicode == 32) {
+                    audio.playPause();
+                }
+            })
+        })
+    </script>
+
+</body>
+
+</html>
